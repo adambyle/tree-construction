@@ -52,6 +52,13 @@ fn main() {
             _ => unreachable!(),
         };
 
+        if first_traversal.len() > 7 {
+            println!("\nEntering more than 7 elements is an expensive operation.");
+            println!("Tree construction consumes a lot of RAM and could crash your computer.");
+            println!("Please remove this check and recompile to construct larger trees.");
+            continue;
+        }
+
         // Generate all trees that can contain numbers from the first traversal.
         // The program assumes that the second traversal contains the same numbers.
         let all_trees = Tree::all_trees_with_items(&first_traversal);
