@@ -97,19 +97,19 @@ impl<T: Clone> Tree<T> {
     fn internal_preorder(&self, out: &mut Vec<T>) {
         out.push(self.value.clone());
         if let Some(ref left) = self.left {
-            left.internal_inorder(out);
+            left.internal_preorder(out);
         }
         if let Some(ref right) = self.right {
-            right.internal_inorder(out);
+            right.internal_preorder(out);
         }
     }
 
     fn internal_postorder(&self, out: &mut Vec<T>) {
         if let Some(ref left) = self.left {
-            left.internal_inorder(out);
+            left.internal_postorder(out);
         }
         if let Some(ref right) = self.right {
-            right.internal_inorder(out);
+            right.internal_postorder(out);
         }
         out.push(self.value.clone());
     }
